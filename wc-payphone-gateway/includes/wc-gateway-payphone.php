@@ -28,7 +28,7 @@ class WC_Gateway_PayPhone extends WC_Payment_Gateway
 
         $this->id = 'payphone';
         $this->icon = IMGDIR . 'logo-woocommerce.png';
-        $this->method_description = __("Tarjetas de crédito o débito Visa y Mastercard | Payphone", 'payphone');
+        $this->method_description = __("Visa and Mastercard credit or debit cards | Payphone", 'payphone');
         $this->has_fields = false;
 
         //Form and settings
@@ -36,7 +36,7 @@ class WC_Gateway_PayPhone extends WC_Payment_Gateway
         $this->init_settings();
 
         $this->language = get_bloginfo('language');
-        $this->title = __("Tarjetas de crédito o débito Visa y Mastercard | Payphone", 'payphone');
+        $this->title = __("Visa and Mastercard credit or debit cards | Payphone", 'payphone');
         $this->description = $this->settings['description'];
         $this->textactive = 0;
 

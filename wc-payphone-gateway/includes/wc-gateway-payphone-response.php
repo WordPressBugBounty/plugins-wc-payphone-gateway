@@ -32,6 +32,7 @@ class WC_Gateway_PayPhone_Response
         $order = new WC_Order($this->order_id);
 
         $result = $this->confirm_call($this->contador);
+        $message = $result->message ?? '';
 
         if ($result == null) {
             $order->update_status('cancelled', __('No valid response was obtained', 'payphone'));
@@ -44,8 +45,8 @@ class WC_Gateway_PayPhone_Response
             }
 
             if ($result->statusCode == 2) {
-                $order->update_status('cancelled', __($result->message, 'payphone'));
-                throw new Exception($result->message, 'payphone');
+                $order->update_status('cancelled', $message);
+                throw new Exception($message);
             }
 
             if ($result->statusCode == 3) {

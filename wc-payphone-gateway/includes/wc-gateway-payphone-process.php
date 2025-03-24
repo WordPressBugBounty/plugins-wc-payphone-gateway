@@ -135,8 +135,18 @@ class WC_Gateway_PayPhone_Process
         $request_params->Lang = explode('_', get_locale())[0];
         $request_params->Currency = $order->get_currency();
         $request_params->StoreId = $this->storeId;
-        $request_params->reference = "Pedido #" . $client_tx_id . " en: " . get_bloginfo('name') . " " . get_site_url();
+        $request_params->reference = substr("Pedido #" . $client_tx_id . " en: " . get_site_url() . " - " . get_bloginfo('name'), 0, 99);
 
+        if (!empty($order->get_billing_country()) && !empty($order->get_billing_city())) {
+            $request_params->order = $this->getDataBillTo($order, $client_tx_id);
+        }
+
+        $request_params->optionalParameter = "c:country/ " . $order->get_billing_country() . " | c:city/" . $order->get_billing_city();
+        return $request_params;
+    }
+
+    private function getDataBillTo($order, $client_tx_id)
+    {
         //creamos el arreglo con datos de facturacion billTo con el formato requerido
         $billTo = [
             "address1" => $order->get_billing_address_1(),
@@ -185,14 +195,8 @@ class WC_Gateway_PayPhone_Process
             $lineItems[] = $envio;
         }
 
-
-        $orderArray = array_merge(array("billTo" => $billTo), array("lineItems" => $lineItems));
-        if (!empty($order->get_billing_country()) && !empty($order->get_billing_city())) {
-            $request_params->order = $orderArray;
-        }
-        //$request_params->optionalParameter="'".json_encode($orderArray)."'";
-        $request_params->optionalParameter = "c:country/ " . $order->get_billing_country() . " | c:city/" . $order->get_billing_city();
-        return $request_params;
+        return array_merge(array("billTo" => $billTo), array("lineItems" => $lineItems));
     }
+
 
 }

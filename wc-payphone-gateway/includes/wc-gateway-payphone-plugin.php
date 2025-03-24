@@ -155,8 +155,20 @@ class WC_Gateway_PayPhone_Plugin
         add_filter('plugin_action_links_' . plugin_basename($this->file), array($this, 'plugin_action_links'));
         add_action('wp_ajax_pp_dismiss_notice_message', array($this, 'ajax_dismiss_notice'));
 
+        add_filter('load_textdomain_mofile', array($this, 'payphone_load_my_own_textdomain'), 10, 2); //Change locale es_* to es_EC
     }
 
+
+    /**
+     * Change locale es_* to es_EC
+     */
+    function payphone_load_my_own_textdomain($mofile, $domain)
+    {
+        if ($domain === "payphone" && strpos($mofile, 'es_') !== false) {
+            $mofile = WC_PAYPHONE_PLUGIN_PATH . 'languages/' . $domain . '-es_EC.mo';
+        }
+        return $mofile;
+    }
 
     public function bootstrap()
     {

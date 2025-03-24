@@ -3,10 +3,12 @@
 /*
   Plugin Name: WooCommerce - PayPhone Gateway
   Plugin URI: https://www.payphone.app/business/
-  Description: PayPhone Payment Gateway for WooCommerce. Recibe pagos en internet mediante payphone!
-  Version: 3.1.2
+  Description: Accept payments in your online store with Visa, Mastercard cards or Payphone balance using our plugin.
+  Version: 3.2.0
   Author: Payphone.
   Author URI: https://www.payphone.app/
+  Text Domain: payphone
+  Domain Path: /languages/
   License: GNU General Public License v3.0
   License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -19,6 +21,18 @@ if (!defined('ABSPATH')) {
 
 if (!defined('WC_GATEWAY_PAYPHONE_VERSION')) {
     define('WC_GATEWAY_PAYPHONE_VERSION', '2.1.0');
+}
+
+if (!defined('WC_PAYPHONE_PLUGIN_FILE')) {
+    define('WC_PAYPHONE_PLUGIN_FILE', __FILE__);
+}
+
+if (!defined('WC_PAYPHONE_PLUGIN_PATH')) {
+    define('WC_PAYPHONE_PLUGIN_PATH', plugin_dir_path(WC_PAYPHONE_PLUGIN_FILE));
+}
+
+if (!defined('WC_PAYPHONE_PLUGIN_URL')) {
+    define('WC_PAYPHONE_PLUGIN_URL', WP_PLUGIN_URL . "/" . plugin_basename(dirname(WC_PAYPHONE_PLUGIN_FILE)));
 }
 
 //Agregar el filter para crear la pagina virtual

@@ -7,78 +7,83 @@
 get_header();
 
 
+$redirectHome = "<script>location.href = '" . get_site_url() . "'</script>";
+
 // Obtener el ID de la order
 // Obtener los datos completos de la orden
 $order_id = get_query_var('order-id');
-$order = new WC_Order($order_id);
+if ($order_id) {
+  try {
+    $order = new WC_Order($order_id);
+    $showTransactionPayphone = $order->get_meta('showTransactionPayphone', true);
 
-$showTransactionPayphone = $order->get_meta('showTransactionPayphone');
-
-if ($showTransactionPayphone) {
-  echo "<script>location.href = '" . get_site_url() . "'</script>";
-}
-
-?>
-<div style="display: flex;padding:16px;">
-  <div style="margin:auto; width: 850px;">
-    <?php
-
-    //Validar si la order fallo
-    if ($order->has_status('failed')) {
-      wc_get_template('templates/order-failed-template.php', array('order' => $order), '', PAYPHONE_PATH);
-    } else {
-      //Obtener los datos adicionales de la orden
-      $dataTransaction = $order->get_meta('DataPayphone');
-
-      if ($dataTransaction != "") {
-        $dataTransaction = json_decode($dataTransaction);
-        $styleCabezera = "style='background-color: #ff7300 !important;box-shadow: 0 4px 15px #c85b02;text-transform: uppercase;height: 40px;color:#000;text-align:center;font-weight: bold;padding:0'";
-        $styleTable = "style='border-spacing: 0;width: 100%;border-collapse: separate;'";
-
-        //Template del detalle general de la orden
-        wc_get_template(
-          'templates/order-detail-template.php',
-          array(
-            'dataTransaction' => $dataTransaction,
-            'styleCabezera' => $styleCabezera,
-            'styleTable' => $styleTable
-          ),
-          '',
-          PAYPHONE_PATH
-        );
-
-        //Template del detalle del pago
-        wc_get_template(
-          'templates/order-payment-detail-template.php',
-          array('dataTransaction' => $dataTransaction),
-          '',
-          PAYPHONE_PATH
-        );
-
-        //Template de los productos
-        wc_get_template(
-          'templates/order-products-template.php',
-          array(
-            'dataTransaction' => $dataTransaction,
-            'styleCabezera' => $styleCabezera,
-            'styleTable' => $styleTable,
-            'products' => $order->get_items(),
-            "shipping" => $order->get_shipping_method(),
-            "shippingTotal" => $order->get_shipping_total(),
-            "shippingTax" => $order->get_shipping_tax()
-
-          ),
-          '',
-          PAYPHONE_PATH
-        );
-        $order->update_meta_data('showTransactionPayphone', 'ready');
-        $order->save();
-      } else {
-        echo "<script>location.href = '" . get_site_url() . "'</script>";
-      }
+    if ($showTransactionPayphone || !$order) {
+      echo $redirectHome;
     }
-    ?>
-  </div>
+  } catch (\Throwable $th) {
+    echo $redirectHome;
+  }
+
+} else {
+  echo $redirectHome;
+}
+?>
+
+<link rel="stylesheet" href="<?php echo WC_PAYPHONE_PLUGIN_URL . '/assets/css/payphone-order.css' ?>">
+</link>
+
+<div class="wp-site-blocks ppbo-order">
+  <main>
+    <div class="content">
+      <?php
+      //Validar si la order fallo
+      if ($order->has_status('failed')) {
+        wc_get_template('templates/order-failed-template.php', array('order' => $order), '', WC_PAYPHONE_PLUGIN_PATH);
+      } else {
+        //Obtener los datos adicionales de la orden
+        $dataTransaction = $order->get_meta('DataPayphone', true);
+        if ($dataTransaction != "") {
+          $dataTransaction = json_decode($dataTransaction);
+
+          //Template header de la orden
+          wc_get_template(
+            'templates/order-header-template.php',
+            array('dataTransaction' => $dataTransaction, 'order' => $order),
+            '',
+            WC_PAYPHONE_PLUGIN_PATH
+          );
+          //Template de los productos
+          wc_get_template(
+            'templates/order-products-template.php',
+            array(
+              'dataTransaction' => $dataTransaction,
+              'order' => $order,
+
+            ),
+            '',
+            WC_PAYPHONE_PLUGIN_PATH
+          );
+
+          //Template del detalle del pago
+          wc_get_template(
+            'templates/order-payment-detail-template.php',
+            array('dataTransaction' => $dataTransaction),
+            '',
+            WC_PAYPHONE_PLUGIN_PATH
+          );
+
+          //Template footer de la orden
+          wc_get_template('templates/order-footer-template.php', [], '', WC_PAYPHONE_PLUGIN_PATH);
+
+          $order->update_meta_data('showTransactionPayphone', 'ready');
+          $order->save();
+        } else {
+          //echo $redirectHome;
+        }
+      }
+      ?>
+    </div>
+  </main>
 </div>
 <?php
 // Incluir el pie de pagina

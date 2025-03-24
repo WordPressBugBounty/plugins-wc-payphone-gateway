@@ -1,48 +1,29 @@
-<h4 style="text-transform: uppercase;">
-  <?php echo __('Detail Payment', 'payphone') ?>
-</h4>
-<table>
-  <tr>
-    <td style="text-transform: uppercase;">
-      <?php echo __('Payment Method', 'payphone') ?>:
-    </td>
-    <td style="padding-left:24px"><strong>
-        <?php echo $dataTransaction->cardBrand ?>
-      </strong></td>
-  <tr>
-
-  <tr>
-    <td style="text-transform: uppercase;">
-      <?php echo __('Transaction number', 'payphone') ?>:
-    </td>
-    <td style="padding-left:24px"><strong>
-        <?php echo $dataTransaction->transactionId ?>
-      </strong></td>
-  <tr>
-  <tr>
-    <td style="text-transform: uppercase;">
-      <?php echo __('Names', 'payphone') ?>:
-    </td>
-    <td style="padding-left:24px"><strong>
-        <?php echo $dataTransaction->optionalParameter4 ?>
-      </strong></td>
-  <tr>
-
-  <tr>
-    <td style="text-transform: uppercase;">
-      <?php echo __('Mail', 'payphone') ?>:
-    </td>
-    <td style="padding-left:24px"><strong>
-        <?php echo $dataTransaction->optionalParameter2 ?>
-      </strong></td>
-  <tr>
-
-  <tr>
-    <td style="text-transform: uppercase;">
-      <?php echo __('Reference', 'payphone') ?>:
-    </td>
-    <td style="padding-left:24px"><strong>
-        <?php echo $dataTransaction->reference ?>
-      </strong></td>
-  <tr>
-</table>
+<div class="payment-title">
+  <?php echo __('Detail Payment', "payphone") ?>
+</div>
+<div class="payment-info">
+  <div>
+    <div>
+      <?php echo __('Payment Method', "payphone") ?>:
+      <?php echo $dataTransaction->cardBrand ?>
+    </div>
+  </div>
+  <div>
+    <div>
+      <?php echo __('Transaction number', "payphone") ?>:
+      <?php echo $dataTransaction->transactionId ?>
+    </div>
+  </div>
+  <div style="text-transform: capitalize;">
+    <div>
+      <?php echo $dataTransaction->optionalParameter4 ? __('Names', "payphone") : __('Client', "payphone") ?>:
+      <?php echo $dataTransaction->optionalParameter4 ? strtolower($dataTransaction->optionalParameter4) : $dataTransaction->phoneNumber ?>
+    </div>
+  </div>
+  <div>
+    <div>
+      <?php echo __('Reference', "payphone") ?>:
+      <?php echo $dataTransaction->reference ?>
+    </div>
+  </div>
+</div>

@@ -1,97 +1,106 @@
 === WooCommerce - Payphone Gateway ===
 Contributors: Payphone
-Tags: Woocommerce, Gateway Payment
+Tags: WooCommerce, Payment Gateway, PayPhone
 Requires at least: 2.5
-Tested up to: 6.5
+Tested up to: 6.1.1
 Requires PHP: 5.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-WooCommerce - PayPhone Gateway agrega una nueva pasarela de pago para realizar los cobros de tus productos de woocommerce mediante PayPhone.
+WooCommerce - PayPhone Gateway introduces a new payment gateway to process WooCommerce product payments via PayPhone.
 
 == Description ==
-WooCommerce - PayPhone Gateway adds a new payment gateway to charge woocommerce products through PayPhone. To be able to use this plugin you must first become a PayPhone Store, if you are not yet you can enter to [PayPhone](https://payphone.app)
 
-This plugin get the total amount, taxes, shipping, order id and send to PayPhone to do the payment. Once the payment is completed, the response is received and the corresponding order is updated.
+The WooCommerce - PayPhone Gateway plugin adds a new payment gateway for processing payments through PayPhone. To use this plugin, you must first register as a PayPhone Store. If you're not yet registered, you can sign up at [PayPhone](https://payphone.app).
+
+The plugin retrieves the total amount, taxes, shipping, and order ID, and sends them to PayPhone for payment processing. Once the payment is completed, the response is received and the corresponding order is updated accordingly.
 
 == Installation ==
 
 = Minimum Requirements =
 
 * WordPress 2.5 or greater
+* WooCommerce installed and activated
 
-= Automatic installation =
+= Automatic Installation =
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+Automatic installation is the easiest option, as WordPress handles the file transfers automatically, and you don’t need to leave your web browser. To automatically install the plugin, log in to your WordPress dashboard, navigate to **Plugins > Add New**, and search for "WooCommerce - PayPhone Gateway". Once you find the plugin, click **Install Now** and then **Activate**.
 
-In the search field type "WooCommerce PayPal Express Checkout" and click Search Plugins. Once you’ve found our plugin you can view details about it such as the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now.
+= Manual Installation =
 
-= Manual installation =
-
-The manual installation method involves downloading our plugin and uploading it to your webserver via your favourite FTP application. The
-WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+If you prefer manual installation, download the plugin and upload it to your server via your favorite FTP client. For detailed instructions, refer to the [WordPress Codex on Manual Plugin Installation](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
 = Updating =
 
-Automatic updates should work like a charm; as always though, ensure you backup your site just in case.
+Automatic updates should work seamlessly. However, we recommend always backing up your site before updating.  
 
-If on the off-chance you do encounter issues with the callback url pages after an update you simply need to flush the permalinks by going to WordPress > Settings > Permalinks and hitting 'save'. That should return things to normal.
+If you encounter any issues with callback URLs after an update, you may need to flush your permalinks by going to **WordPress > Settings > Permalinks** and clicking **Save Changes**. This should resolve any issues.
 
 == Configuration ==
 
-You can access the plugin settings by going to Woocommerce > Settings > Checkout > PayPhone
+You can access the plugin settings by navigating to **WooCommerce > Settings > Payments > PayPhone**.
 
-The enable/disable checkbox allow you to show or not the gateway in checkout page
-
-The gateway description help the user to know what the gateway do.
-
-The Token and Token test field allow to communicate with PayPhone, you can get the value by entering [this page](https://appdeveloper.payphonetodoesposible.com)
-
-Test mode checkbox enable or disable the test mode. In test mode all transaction are fake.
-
-You can select the page that will be displayed if the payment was canceled or rejected
-
+- **Enable/Disable**: Use this checkbox to enable or disable the payment gateway on the checkout page.
+- **Gateway Description**: Provides a brief description of PayPhone during checkout.
+- **Token & Test Token**: Required to communicate with PayPhone. You can retrieve the credentials by visiting [this page](https://appdeveloper.payphonetodoesposible.com).
+- **Test Mode**: Enable or disable test mode, where all transactions are simulated (fake).
+- **Success & Failure Pages**: Choose the page displayed when a payment is either approved or declined.
 
 == Frequently Asked Questions ==
 
 = Does this plugin work with credit cards or just PayPhone? =
 
-This plugin supports payments with credit and debit cards and using the Payphone. 
+This plugin supports payments via **credit and debit cards**, as well as PayPhone.
 
 = Does this support both production mode and sandbox mode for testing? =
 
-Yes it does - production and sandbox mode is driven by how you connect.  You may choose to connect in either mode, and disconnect and reconnect in the other mode whenever you want. Anly need to get the correct credentials at [this page](https://appdeveloper.payphonetodoesposible.com)
+Yes, the plugin supports both **production** and **sandbox** modes. You can choose the mode based on your credentials, and switch between them as needed. To obtain the correct credentials, visit [this page](https://appdeveloper.payphonetodoesposible.com).
 
 = Where can I find documentation? =
 
-For help setting up and configuring, please refer to our [user guide](https://docs.payphone.app/)
+For help with setup and configuration, please refer to our [user guide](https://docs.payphone.app/).
 
 = Where can I get support? =
 
-If you get stuck, you can ask for help using the email info@payphone.app.
+If you need assistance, you can reach out via email at **info@payphone.app**.
 
 == Changelog ==
-1.2.0 
-Bug fix. 
-1.1.4
-Fix bugs (Coupon support)
-1.1.3
-Fix bugs (convert from decimal to integer)
-1.1.2
-Add support for direct payment compatibilities in wordpress 5.3
-1.1.1
-Add hook when the pay was cancelled or approved
-Cancelled hook: payphone_canceled_pay
-Approved hook: payphone_approved_pay
-This hooks receive pay result in first parameters
-1.1.0
-Correction of bugs
-The option of test mode is eliminated. Now you can enable test mode from the developer console
-1.0.4
-Add support for the card addon
-1.0.3
-Correction of bugs
-1.0.2
-Update of docs page
 
-1.0.0 Release
+= 3.2.0 =
+* General improvements and optimizations.
+* Enhancements to the plugin's performance and stability.
+* Minor bug fixes and updates.
+
+= 1.2.0 =
+* Bug fix.
+
+= 1.1.4 =
+* Fix bugs (Coupon support).
+
+= 1.1.3 =
+* Fix bugs (convert from decimal to integer).
+
+= 1.1.2 =
+* Added support for direct payment compatibility in WordPress 5.3.
+
+= 1.1.1 =
+* Added hooks for canceled or approved payments:
+  - **payphone_canceled_pay**: Triggered when a payment is canceled.
+  - **payphone_approved_pay**: Triggered when a payment is approved.
+  - These hooks receive the payment result as the first parameter.
+
+= 1.1.0 =
+* Bug fixes.
+* Removed the test mode option. Test mode is now enabled via the developer console.
+
+= 1.0.4 =
+* Added support for the card add-on.
+
+= 1.0.3 =
+* Bug fixes.
+
+= 1.0.2 =
+* Updated the documentation page.
+
+= 1.0.0 =
+* Initial release.
