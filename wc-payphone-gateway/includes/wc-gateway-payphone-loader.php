@@ -43,7 +43,10 @@ class WC_Gateway_PayPhone_Loader {
     }
     
     public function showpayphoneMessage($content) {
-        return '<div class="' . htmlentities($_GET['type']) . '">' . htmlentities(urldecode($_GET['msg'])) . '</div>' . $content;
+        $type = isset($_GET['type']) ? sanitize_html_class($_GET['type']) : 'notice';
+        $msg  = isset($_GET['msg']) ? esc_html(urldecode($_GET['msg'])) : '';
+
+        return '<div class="' . esc_attr($type) . '">' . $msg . '</div>' . $content;
     }
 
     /**

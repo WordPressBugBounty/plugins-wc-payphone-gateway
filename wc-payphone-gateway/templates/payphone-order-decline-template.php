@@ -5,34 +5,38 @@
 
 // Incluir la cabecera principal
 get_header();
-$urlImagen = get_site_url() . '/wp-content/plugins/wc-payphone-gateway/assets/img/Payphone-pestania.png';
+$urlImagen = esc_url( get_site_url() . '/wp-content/plugins/wc-payphone-gateway/assets/img/Payphone-pestania.png' );
 ?>
 <div style="display: flex;padding:16px;">
   <div style="margin:auto; width: 850px;min-height: 500px;font-size: 24px;">
     <a href="https://www.payphone.app/" target="_blank" style="display: inline-block;">
-      <img src='<?php echo $urlImagen ?>'>
+      <img src='<?php echo $urlImagen; ?>' alt="Payphone Logo">
     </a>
     <br />
     <br />
     <?php
-    $message = filter_input(INPUT_GET, 'error');
-    if ($message) {
-      echo $message . '<br/>';
+    // Sanitizar mensaje de error en GET
+    $message = filter_input(INPUT_GET, 'error', FILTER_SANITIZE_STRING);
+    if ( ! empty($message) ) {
+      echo esc_html( $message ) . '<br/>';
     }
 
+    // Sanitizar query string manual
     $queries = array();
-    parse_str($_SERVER['QUERY_STRING'], $queries);
+    parse_str(sanitize_text_field($_SERVER['QUERY_STRING']), $queries);
 
-    if (array_key_exists("order", $queries)) {
-      $message = get_post_meta($queries['order'], "mesaggeError", true);
-      if ($message) {
-        echo $message;
+    if ( ! empty($queries['order']) ) {
+      $order_id = intval( $queries['order'] ); // Asegurarnos que es un ID numérico
+      $message = get_post_meta( $order_id, "mesaggeError", true );
+
+      if ( ! empty($message) ) {
+        echo esc_html( $message );
       }
     }
-
     ?>
   </div>
 </div>
 <?php
 // Incluir el pie de pagina
 get_footer();
+?>

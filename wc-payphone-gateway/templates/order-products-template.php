@@ -15,16 +15,16 @@ $fee = $order->get_total_fees();
   <thead>
     <tr>
       <th>
-        <?php echo __('Description', "payphone") ?>
+        <?php echo esc_html(__('Description', "payphone")) ?>
       </th>
       <th style="width:100px;">
-        <?php echo __('Quant.', "payphone") ?>
+        <?php echo esc_html(__('Quant.', "payphone")) ?>
       </th>
       <th style="width:100px;">
-        <?php echo __('Unit Price', "payphone") ?>
+        <?php echo esc_html(__('Unit Price', "payphone")) ?>
       </th>
       <th style="text-align: right;width:120px">
-        <?php echo __('Total', "payphone") ?>
+        <?php echo esc_html(__('Total', "payphone")) ?>
       </th>
     </tr>
   </thead>
@@ -35,36 +35,36 @@ $fee = $order->get_total_fees();
       ?>
     <tr class="items">
       <td>
-        <?php echo substr(trim(strip_tags($item_data['name'])), 0, 50) ?>
+        <?php echo esc_html(substr(trim(strip_tags($item_data['name'])), 0, 50)) ?>
       </td>
       <td>
-        <?php echo $item_data['quantity'] ?>
+        <?php echo esc_html($item_data['quantity']) ?>
       </td>
       <td>
-        <?php echo $dataTransaction->currency . ' ' . number_format($unit_price, 2) ?>
+        <?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($unit_price, 2)) ?>
       </td>
       <td style="text-align: right;">
-        <?php echo $dataTransaction->currency . ' ' . number_format($item_data['subtotal'], 2) ?>
+        <?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($item_data['subtotal'], 2)) ?>
       </td>
     </tr>
     <?php } ?>
     <tr>
       <td></td>
       <td class="totals" colspan="2">
-        <?php echo __('Subtotal', "payphone") ?>
+        <?php echo esc_html(__('Subtotal', "payphone")) ?>
       </td>
       <td class="totals" style="text-align:right;">
-        <?php echo $dataTransaction->currency . ' ' . number_format($subtotal, 2) ?>
+        <?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($subtotal, 2)) ?>
       </td>
     </tr>
     <?php if ($fee) { ?>
     <tr>
       <td></td>
       <td class="totals" colspan="2">
-        <?php echo __('Fee', "payphone") ?>
+        <?php echo esc_html(__('Fee', "payphone")) ?>
       </td>
       <td class="totals" style="text-align:right;">
-        <?php echo $dataTransaction->currency . ' ' . number_format($fee, 2) ?>
+        <?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($fee, 2)) ?>
       </td>
     </tr>
     <?php } ?>
@@ -72,10 +72,10 @@ $fee = $order->get_total_fees();
     <tr>
       <td></td>
       <td class="totals" colspan="2">
-        <?php echo __('Discount', "payphone") ?>
+        <?php echo esc_html(__('Discount', "payphone")) ?>
       </td>
       <td class="totals" style="text-align:right;color:red;">
-        -<?php echo $dataTransaction->currency . ' ' . number_format($discount, 2) ?>
+        -<?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($discount, 2)) ?>
       </td>
     </tr>
     <?php } ?>
@@ -83,10 +83,10 @@ $fee = $order->get_total_fees();
     <tr>
       <td></td>
       <td class="totals" colspan="2">
-        <?php echo __('Shipping', "payphone") ?>
+        <?php echo esc_html(__('Shipping', "payphone")) ?>
       </td>
       <td class="totals" style="text-align:right;">
-        <?php echo $dataTransaction->currency . ' ' . (empty($shipping) ? number_format(0, 2) : number_format($shippingTotal, 2)) ?>
+        <?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($shippingTotal, 2)) ?>
       </td>
     </tr>
     <?php } ?>
@@ -94,20 +94,20 @@ $fee = $order->get_total_fees();
     <tr>
       <td></td>
       <td class="totals" colspan="2">
-        <?php echo __('Tax', "payphone") ?>
+        <?php echo esc_html(__('Tax', "payphone")) ?>
       </td>
       <td class="totals" style="text-align:right;">
-        <?php echo $dataTransaction->currency . ' ' . number_format($tax, 2) ?>
+        <?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($tax, 2)) ?>
       </td>
     </tr>
     <?php } ?>
     <tr>
       <td></td>
       <td class="totals" colspan="2">
-        <?php echo __('Total', "payphone") ?>
+        <?php echo esc_html(__('Total', "payphone")) ?>
       </td>
       <td class="totals" style="text-align:right;">
-        <?php echo $dataTransaction->currency . ' ' . number_format($total, 2) ?>
+        <?php echo esc_html($dataTransaction->currency) . ' ' . esc_html(number_format($total, 2)) ?>
       </td>
     </tr>
   </tbody>

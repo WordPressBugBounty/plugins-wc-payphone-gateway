@@ -4,7 +4,7 @@
   Plugin Name: WooCommerce - PayPhone Gateway
   Plugin URI: https://www.payphone.app/business/
   Description: Accept payments in your online store with Visa, Mastercard cards or Payphone balance using our plugin.
-  Version: 3.2.0
+  Version: 3.2.1
   Author: Payphone.
   Author URI: https://www.payphone.app/
   Text Domain: payphone
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!defined('WC_GATEWAY_PAYPHONE_VERSION')) {
-    define('WC_GATEWAY_PAYPHONE_VERSION', '2.1.0');
+    define('WC_GATEWAY_PAYPHONE_VERSION', '3.2.1');
 }
 
 if (!defined('WC_PAYPHONE_PLUGIN_FILE')) {

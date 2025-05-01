@@ -37,15 +37,15 @@ class WC_Gateway_PayPhone extends WC_Payment_Gateway
 
         $this->language = get_bloginfo('language');
         $this->title = __("Visa and Mastercard credit or debit cards | Payphone", 'payphone');
-        $this->description = $this->settings['description'];
+        $this->description = isset($this->settings['description']) ? sanitize_text_field($this->settings['description']) : '';
         $this->textactive = 0;
 
         //$this->payphone_language = $this->settings['payphone_language'];
         $this->redirect_page_success_id = get_site_url() . "/payphone-order//";
         $this->redirect_page_decline_id = get_site_url() . "/payphone-order-decline";
 
-        $this->token = $this->settings['token'];
-        $this->storeId = $this->settings['storeId'];
+        $this->token = isset($this->settings['token']) ? sanitize_text_field($this->settings['token']) : '';
+        $this->storeId = isset($this->settings['storeId']) ? sanitize_text_field($this->settings['storeId']) : null;
 
         add_action('payphone_response', array($this, 'payphone_response'));
 
@@ -95,16 +95,15 @@ class WC_Gateway_PayPhone extends WC_Payment_Gateway
     /**
      * Output the gateway settings screen.
      */
-    public function admin_options()
-    {
-        echo '<h3>PayPhone</h3>';
-        echo '<p>' . __('Pay with PayPhone', 'payphone') . '</p>';
+    public function admin_options() {
+        echo '<h3>' . esc_html__('PayPhone', 'payphone') . '</h3>';
+        echo '<p>' . esc_html__('Pay with PayPhone', 'payphone') . '</p>';
         echo '<table class="form-table">';
-        // Generate the HTML For the settings form.
-        echo '<h3>' . __('Initial Key Setting', 'payphone') . '</h3>';
-        echo __('Response URL:', 'payphone') . ' ' . get_site_url() . '/wc-api/WC_Gateway_PayPhone';
+        
+        echo '<h3>' . esc_html__('Initial Key Setting', 'payphone') . '</h3>';
+        echo esc_html__('Response URL:', 'payphone') . ' ' . esc_url(get_site_url() . '/wc-api/WC_Gateway_PayPhone');
         echo '<br>';
-
+    
         $this->generate_settings_html();
         echo '</table>';
     }
@@ -227,10 +226,17 @@ class WC_Gateway_PayPhone extends WC_Payment_Gateway
      * */
     function check_payphone_response()
     {
-        @ob_clean();
+        ob_clean();
         if (!empty($_REQUEST)) {
+            // Sanear todos los parámetros de entrada
+            $sanitized_request = [];
+
+            foreach ($_REQUEST as $key => $value) {
+                $sanitized_request[$key] = sanitize_text_field(wp_unslash($value));
+            }
+
             header('HTTP/1.1 200 OK');
-            do_action("payphone_response", $_REQUEST);
+            do_action("payphone_response", $sanitized_request);
         } else {
             wp_die(__("PayPhone Request Failure", 'payphone'));
         }

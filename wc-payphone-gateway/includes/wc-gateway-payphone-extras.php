@@ -19,25 +19,39 @@ class WC_Gateway_PayPhone_Extras
 
     function update_payphone_status()
     {
-        if (!wp_verify_nonce($_REQUEST['_wpnonce'], "update_payphone_nonce")) {
-            exit("No naughty business please");
+        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce($_REQUEST['_wpnonce'], 'update_payphone_nonce')) {
+            exit('No naughty business please');
         }
-
-        $order_id = $_REQUEST['order_id'];
-
+    
+        // Sanear el parámetro recibido
+        $order_id = isset($_REQUEST['order_id']) ? absint($_REQUEST['order_id']) : 0;
+        if (!$order_id) {
+            wp_send_json_error('Invalid order ID.');
+            exit;
+        }
+    
         $order = wc_get_order($order_id);
-        $client_tx_id = get_post_meta($order_id, 'client_tx_id', TRUE);
-
-        $this->get_tx_status($client_tx_id, $order);
-
-        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-            $result = json_encode('success');
-            echo $result;
-        } else {
-            header("Location: " . $_SERVER["HTTP_REFERER"]);
+        if (!$order) {
+            wp_send_json_error('Order not found.');
+            exit;
         }
-
-        die();
+    
+        // Sanear metadatos también
+        $client_tx_id = sanitize_text_field(get_post_meta($order_id, 'client_tx_id', true));
+        $this->get_tx_status($client_tx_id, $order);
+    
+        // Distinguir si es AJAX
+        if (
+            !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+            strtolower(sanitize_text_field($_SERVER['HTTP_X_REQUESTED_WITH'])) === 'xmlhttprequest'
+        ) {
+            wp_send_json_success();
+        } else {
+            // Redirigir solo a URLs internas
+            $referer = isset($_SERVER['HTTP_REFERER']) ? esc_url_raw($_SERVER['HTTP_REFERER']) : home_url();
+            wp_safe_redirect($referer);
+            exit;
+        }
     }
 
     function add_update_order_actions_button($actions, $order)

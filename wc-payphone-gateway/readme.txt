@@ -66,6 +66,9 @@ If you need assistance, you can reach out via email at **info@payphone.app**.
 
 == Changelog ==
 
+= 3.2.1 =
+* Fix bugs (avoid vulnerabilities of Reflected Cross-Site Scripting)
+
 = 3.2.0 =
 * General improvements and optimizations.
 * Enhancements to the plugin's performance and stability.
