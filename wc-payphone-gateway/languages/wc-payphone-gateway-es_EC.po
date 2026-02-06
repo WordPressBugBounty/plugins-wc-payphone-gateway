@@ -1,0 +1,387 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Payphone - Payment Gateway Button\n"
+"POT-Creation-Date: 2025-11-20 14:35-0500\n"
+"PO-Revision-Date: 2025-11-20 14:35-0500\n"
+"Last-Translator: \n"
+"Language-Team: Code is in the Air <jairo@thecodeisintheair.com>\n"
+"Language: es_EC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-WPHeader: wc-payphone-gateway.php\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: block-payment\n"
+
+#: includes/payphone-gateway-btn-extras.php:66
+msgid "Verify transaction"
+msgstr "Verificar transacción"
+
+#: includes/payphone-gateway-btn-extras.php:159
+msgid "Authorization Code"
+msgstr "Código de Autorización"
+
+#: includes/payphone-gateway-btn-extras.php:160
+msgid "Card Brand"
+msgstr "Emisor de Tarjeta"
+
+#: includes/payphone-gateway-btn-extras.php:166
+#, php-format
+msgid "Payment denied. Reasons: %s"
+msgstr "Pago denegado. Razones: %s"
+
+#: includes/payphone-gateway-btn-extras.php:167
+msgid "Transaction Status"
+msgstr "Estado de la transacción"
+
+#: includes/payphone-gateway-btn-extras.php:168
+msgid "Error Message"
+msgstr "Mensaje de error"
+
+#: includes/payphone-gateway-btn-extras.php:173
+#, php-format
+msgid "Pending payment, message: %s"
+msgstr "Pendiente de pago, mensaje: %s"
+
+#: includes/payphone-gateway-btn-extras.php:179
+#, php-format
+msgid "Failed order: %s"
+msgstr "Orden fallida: %s"
+
+#: includes/payphone-gateway-btn-extras.php:208
+#: includes/payphone-gateway-btn-refund.php:69
+msgid "An error has ocurred"
+msgstr "Se ha producido un error"
+
+#: includes/payphone-gateway-btn-payment.php:31
+#: includes/payphone-gateway-btn-payment.php:39
+msgid "Credit or debit cards | Payphone"
+msgstr "Tarjetas de crédito o débito | Payphone"
+
+#: includes/payphone-gateway-btn-payment.php:101
+msgid "Pay with Payphone"
+msgstr "Pagar con Payphone"
+
+#: includes/payphone-gateway-btn-payment.php:104
+msgid "Initial Key Setting"
+msgstr "Configuración de clave inicial"
+
+#: includes/payphone-gateway-btn-payment.php:105
+msgid "Response URL:"
+msgstr "URL de respuesta:"
+
+#: includes/payphone-gateway-btn-payment.php:121
+msgid "You must set up a valid token"
+msgstr "Debes configurar un token válido"
+
+#: includes/payphone-gateway-btn-payment.php:165
+msgid "Refund Error: You need to specify a refund amount."
+msgstr "Error de reembolso: debe especificar un monto de reembolso."
+
+#: includes/payphone-gateway-btn-payment.php:170
+#, php-format
+msgid "Refund Error: PayPhone only allow refund order total %s"
+msgstr ""
+"Error de reembolso: PayPhone solo permite el total de %s del pedido de "
+"reembolso"
+
+#: includes/payphone-gateway-btn-payment.php:178
+msgid "PayPhone refund completed"
+msgstr "Reembolso de PayPhone completado"
+
+#: includes/payphone-gateway-btn-payment.php:185
+#: includes/payphone-gateway-btn-payment.php:188
+#, php-format
+msgid "Refund Error: %s"
+msgstr "Error de reembolso: %s"
+
+#: includes/payphone-gateway-btn-payment.php:230
+msgid "PayPhone Request Failure"
+msgstr "Error en la solicitud de Payphone"
+
+#: includes/payphone-gateway-btn-payment.php:249
+#: includes/payphone-gateway-btn-payment.php:265
+#: includes/payphone-gateway-btn-payment.php:281
+#: includes/payphone-gateway-btn-payment.php:285
+#: includes/payphone-gateway-btn-payment.php:291
+msgid "Payment error:"
+msgstr "Payment error:"
+
+#: includes/payphone-gateway-btn-plugin.php:150
+msgid "Payphone - Payment Gateway Button plugin can only be called once"
+msgstr ""
+"El plugin Payphone - Payment Gateway Button solo se puede llamar una vez"
+
+#: includes/payphone-gateway-btn-plugin.php:232
+msgid "Payphone - Payment Gateway Button requires WooCommerce to be activated"
+msgstr ""
+"Payphone - Payment Gateway Button requiere que WooCommerce esté activado"
+
+#: includes/payphone-gateway-btn-plugin.php:237
+msgid "Payphone - Payment Gateway Button requires WC_Payment_Gateway class"
+msgstr "Payphone - Payment Gateway Button requiere la clase WC_Payment_Gateway"
+
+#: includes/payphone-gateway-btn-plugin.php:242
+msgid ""
+"Payphone - Payment Gateway Button requires WooCommerce version 2.5 or greater"
+msgstr ""
+"Payphone - Payment Gateway Button requiere WooCommerce versión 2.5 o superior"
+
+#: includes/payphone-gateway-btn-plugin.php:247
+msgid ""
+"Payphone - Payment Gateway Button requires cURL to be installed on your "
+"server"
+msgstr ""
+"Payphone - Payment Gateway Button requiere que cURL esté instalado en su "
+"servidor"
+
+#: includes/payphone-gateway-btn-plugin.php:250
+msgid ""
+"Payphone - Payment Gateway Button requires OpenSSL >= 1.0.1 to be installed "
+"on your server"
+msgstr ""
+"Payphone - Payment Gateway Button requiere que OpenSSL >= 1.0.1 esté "
+"instalado en su servidor"
+
+#: includes/payphone-gateway-btn-plugin.php:298
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/payphone-gateway-btn-plugin.php:301
+msgid "Docs"
+msgstr "Documentos"
+
+#: includes/payphone-gateway-btn-process.php:67
+#: includes/payphone-gateway-btn-response.php:110
+msgid "The request could not be completed"
+msgstr "No se ha podido completar la solicitud"
+
+#: includes/payphone-gateway-btn-response.php:39
+msgid "No valid response was obtained"
+msgstr "No se obtuvo respuesta válida"
+
+#: includes/payphone-gateway-btn-response.php:41
+msgid ""
+"Url not found, payment with PayPhone will be automatically reversed, contact "
+"the administrator"
+msgstr ""
+"Url no encontrada, el pago con PayPhone se revertirá automáticamente, "
+"contacte al administrador"
+
+#: includes/payphone-gateway-btn-response.php:100
+msgid "Url not found to confirm the transaction"
+msgstr "URL no encontrada para confirmar la transacción"
+
+#: includes/settings/settings-pp.php:11
+msgid "Enable/Disable"
+msgstr "Activar/Desactivar"
+
+#: includes/settings/settings-pp.php:13
+msgid "Enable PayPhone Payment Module."
+msgstr "Habilitar el módulo de pago PayPhone."
+
+#: includes/settings/settings-pp.php:15
+msgid "Show payphone in the Payment List as a payment option"
+msgstr "Mostrar Payphone en la lista de pagos como opción de pago"
+
+#: includes/settings/settings-pp.php:18
+msgid "Description:"
+msgstr "Description:"
+
+#: includes/settings/settings-pp.php:21
+msgid "This controls the description which the user sees during checkout."
+msgstr "Esto controla la descripción que ve el usuario durante el pago."
+
+#: includes/settings/settings-pp.php:25
+msgid "Authorization Token:"
+msgstr "Token de Autorización:"
+
+#: includes/settings/settings-pp.php:27 includes/settings/settings-pp.php:33
+msgid "Given by payphone"
+msgstr "Dada por payphone"
+
+#: includes/settings/settings-pp.php:31
+msgid "Store Id:"
+msgstr "Identificación de la tienda:"
+
+#: templates/order-header-template.php:15
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: templates/order-header-template.php:18
+msgid "Approved"
+msgstr "Aprobado"
+
+#: templates/order-header-template.php:37
+msgid "Pay"
+msgstr "Pago"
+
+#: templates/order-header-template.php:43
+msgid "Order"
+msgstr "Pedido"
+
+#: templates/order-header-template.php:57
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/order-header-template.php:64
+#: templates/order-payment-detail-template.php:27
+msgid "Client"
+msgstr "Cliente"
+
+#: templates/order-header-template.php:71
+msgid "Authorization"
+msgstr "Autorización"
+
+#: templates/order-header-template.php:76
+msgid "Phone"
+msgstr "Teléfono"
+
+#: templates/order-header-template.php:76
+#: templates/order-header-template.php:82
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: templates/order-payment-detail-template.php:7
+msgid "Detail Payment"
+msgstr "Detalle de Pago"
+
+#: templates/order-payment-detail-template.php:13
+msgid "Payment Method"
+msgstr "Método de Pago"
+
+#: templates/order-payment-detail-template.php:20
+msgid "Transaction number"
+msgstr "Número de la transacción"
+
+#: templates/order-payment-detail-template.php:27
+msgid "Names"
+msgstr "Nombres"
+
+#: templates/order-payment-detail-template.php:40
+msgid "Reference"
+msgstr "Referencia"
+
+#: templates/order-products-template.php:22
+msgid "Description"
+msgstr "Descripción"
+
+#: templates/order-products-template.php:25
+msgid "Quant."
+msgstr "Cant."
+
+#: templates/order-products-template.php:28
+msgid "Unit Price"
+msgstr "P. Unitario"
+
+#: templates/order-products-template.php:31
+#: templates/order-products-template.php:111
+msgid "Total"
+msgstr "Total"
+
+#: templates/order-products-template.php:58
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: templates/order-products-template.php:68
+msgid "Fee"
+msgstr "Tarifa"
+
+#: templates/order-products-template.php:79
+msgid "Discount"
+msgstr "Descuento"
+
+#: templates/order-products-template.php:90
+msgid "Shipping"
+msgstr "Envío"
+
+#: templates/order-products-template.php:101
+msgid "Tax"
+msgstr "Impuesto"
+
+#. Plugin Name of the plugin/theme
+msgid "Payphone - Payment Gateway Button"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.payphone.app/business/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Accept payments in your online store with Visa, Mastercard, Diners, Discover "
+"cards or Payphone balance using our plugin."
+msgstr ""
+"Acepta pagos en tu tienda en línea con tarjetas Visa, Mastercard, Diners, "
+"Discover o saldo Payphone mediante nuestro plugin."
+
+#. Author of the plugin/theme
+msgid "Payphone."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.payphone.app/"
+msgstr ""
+
+#~ msgid "Store"
+#~ msgstr "Tienda"
+
+#~ msgid "Order Number"
+#~ msgstr "Número de orden"
+
+#~ msgid "PayPhone Application Payments"
+#~ msgstr "Pagos de la Aplicación PayPhone"
+
+#~ msgid ""
+#~ "Use your Visa, Mastercard, Diners, or Discover credit or debit cards from "
+#~ "any bank in the world, and if you have the Payphone app, use your balance."
+#~ msgstr ""
+#~ "Usa tus tarjetas de crédito o débito Visa, Mastercard, Diners o Discover "
+#~ "de cualquier banco del mundo y, si tienes la aplicación Payphone, utiliza "
+#~ "tu saldo."
+
+#~ msgid "Credit and debit card payments | Payphone"
+#~ msgstr "Pagos con tarjeta de crédito y débito | Payphone"
+
+#~ msgid "Mail"
+#~ msgstr "Correo"
+
+#~ msgid "Order Details"
+#~ msgstr "Detalles del pedido"
+
+#~ msgid "Product"
+#~ msgstr "Producto"
+
+#~ msgid "Amount"
+#~ msgstr "Cantidad"
+
+#, fuzzy
+#~| msgid "Authorization Code"
+#~ msgid "Authorization number"
+#~ msgstr "Código de Autorización"
+
+#~ msgid "Return Success Page"
+#~ msgstr "Volver a la página de inicio"
+
+#~ msgid "Select Page"
+#~ msgstr "Seleccionar página"
+
+#~ msgid "URL of success page"
+#~ msgstr "URL de la página de éxito"
+
+#~ msgid "Return Decline Page"
+#~ msgstr "Página de rechazo de devolución"
+
+#~ msgid "URL of declined page"
+#~ msgstr "URL de la página rechazada"
+
+#~ msgid "Payment result:"
+#~ msgstr "Resultado del pago:"
+
+#~ msgid "Payphone Result"
+#~ msgstr "Resultado de Payphone"

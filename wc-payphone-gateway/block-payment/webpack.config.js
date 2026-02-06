@@ -28,7 +28,7 @@ const requestToHandle = request => {
 module.exports = {
   ...defaultConfig,
   entry: {
-    'payphone-gateway': '/src/index.js',
+    'payphone-gateway-btn': '/src/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'build'),

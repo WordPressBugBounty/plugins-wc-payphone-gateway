@@ -1,24 +1,16 @@
-## Install dependences
+## Modificar bloque
+Para modificar detalles del bloque [aquí](./src\index.js).
+
+## Instalar dependencias
 ```bash
   npm install
 ```
-## start build to developer
+## Compilar local para desarrollo
 ```bash
   npm start
 ```
-## start build to production
+## Compilar local para produccion
 ```bash
-  npm build
-```
-
-Modify block details:
-  \wc-payphone-gateway\block-payment\src\index.js
-after
-```bash
-  npm build
-```
-or
-```bash
-  npm start
+  npm run build
 ```
 

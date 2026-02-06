@@ -1,17 +1,23 @@
 import {registerPaymentMethod} from '@woocommerce/blocks-registry';
 import {getSetting} from '@woocommerce/settings';
-import {decodeEntities} from '@wordpress/html-entities';
-import {__} from '@wordpress/i18n';
+import {translate} from './helper-translations';
 
 const settings = getSetting('payphone_data', {});
 
-const defaultLabel = __('Tarjetas de crédito o débito Visa y Mastercard | Payphone', 'payphone');
+const defaultLabel = translate('Credit or debit cards | Payphone', settings.lang);
 
 /**
  * Content component
  */
-const Content = props => {
-  return <div>{decodeEntities(settings.description || '')}</div>;
+const Content = () => {
+  return (
+    <div>
+      {translate(
+        'Use your Visa, Mastercard, Diners, or Discover credit or debit cards from any bank in the world, and if you have the Payphone app, use your balance.',
+        settings.lang,
+      )}
+    </div>
+  );
 };
 /**
  * Label component
@@ -19,13 +25,15 @@ const Content = props => {
  */
 const Label = () => {
   return (
-    <div style={{display: 'flex', alignItems: 'center'}}>
-      <span>{defaultLabel}</span>
-      <img
-        src={settings.icon}
-        alt="payphone"
-        style={{marginLeft: '8px', height: 'auto', maxWidth: '100%', maxHeight: '100%'}}
-      />
+    <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
+      <span style={{marginRight: '8px'}}>{defaultLabel}</span>
+      <div style={{flexShrink: 1, minWidth: 0}}>
+        <img
+          src={settings.icon}
+          alt="payphone"
+          style={{height: 'auto', maxWidth: '100%', maxHeight: '36px', width: 'auto', display: 'block'}}
+        />
+      </div>
     </div>
   );
 };

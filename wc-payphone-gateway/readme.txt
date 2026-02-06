@@ -1,17 +1,18 @@
-=== WooCommerce - Payphone Gateway ===
+=== Payphone - Payment Gateway Button ===
 Contributors: Payphone
 Tags: WooCommerce, Payment Gateway, PayPhone
-Requires at least: 2.5
-Tested up to: 6.1.1
+Requires at least: 5.0
+Tested up to: 6.8
 Requires PHP: 5.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Stable tag: 3.2.5
 
-WooCommerce - PayPhone Gateway introduces a new payment gateway to process WooCommerce product payments via PayPhone.
+Payphone - Payment Gateway Button introduces a new payment gateway to process WooCommerce product payments via PayPhone.
 
 == Description ==
 
-The WooCommerce - PayPhone Gateway plugin adds a new payment gateway for processing payments through PayPhone. To use this plugin, you must first register as a PayPhone Store. If you're not yet registered, you can sign up at [PayPhone](https://payphone.app).
+The Payphone - Payment Gateway Button plugin adds a new payment gateway for processing payments through PayPhone. To use this plugin, you must first register as a PayPhone Store. If you're not yet registered, you can sign up at [PayPhone](https://payphone.app).
 
 The plugin retrieves the total amount, taxes, shipping, and order ID, and sends them to PayPhone for payment processing. Once the payment is completed, the response is received and the corresponding order is updated accordingly.
 
@@ -24,7 +25,7 @@ The plugin retrieves the total amount, taxes, shipping, and order ID, and sends 
 
 = Automatic Installation =
 
-Automatic installation is the easiest option, as WordPress handles the file transfers automatically, and you don’t need to leave your web browser. To automatically install the plugin, log in to your WordPress dashboard, navigate to **Plugins > Add New**, and search for "WooCommerce - PayPhone Gateway". Once you find the plugin, click **Install Now** and then **Activate**.
+Automatic installation is the easiest option, as WordPress handles the file transfers automatically, and you don’t need to leave your web browser. To automatically install the plugin, log in to your WordPress dashboard, navigate to **Plugins > Add New**, and search for "Payphone - Payment Gateway Button". Once you find the plugin, click **Install Now** and then **Activate**.
 
 = Manual Installation =
 
@@ -65,6 +66,23 @@ For help with setup and configuration, please refer to our [user guide](https://
 If you need assistance, you can reach out via email at **info@payphone.app**.
 
 == Changelog ==
+= 3.2.5 =
+* Deny direct access to plugin files
+* Data Sanitized, Escaped, and Validated
+* The text domain matches the plugin slug
+* Expose source code of compressed code
+* Correct use of file and directory locations
+* Exclude dynamic texts from internalization
+
+= 3.2.4 =
+* Change the plugin name, remove the word woocommerce
+
+= 3.2.3 =
+* Add stable tag
+
+= 3.2.2 =
+* Fix bugs (display the navigation bar on the transaction response page)
+* Fix bugs (Add the diners and discover icon)
 
 = 3.2.1 =
 * Fix bugs (avoid vulnerabilities of Reflected Cross-Site Scripting)
