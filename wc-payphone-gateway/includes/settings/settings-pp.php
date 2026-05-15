@@ -32,6 +32,14 @@ return apply_filters(
             'type' => 'text',
             'description' => __('Given by payphone', 'wc-payphone-gateway'),
             'desc_tip' => true
+        ),
+        'use_sku_reference' => array(
+            'title' => __('Use SKUs in reference', 'wc-payphone-gateway'),
+            'type' => 'checkbox',
+            'label' => __('Use product SKUs as the payment reference.', 'wc-payphone-gateway'),
+            'default' => 'no',
+            'description' => __('When enabled, the reference uses the format SKU>xQuantity|SKU>xQuantity. Products without SKU are skipped. If no product has a SKU, the default reference is used.', 'wc-payphone-gateway'),
+            'desc_tip' => true
         )
     )
 );

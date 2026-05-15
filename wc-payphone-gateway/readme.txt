@@ -6,7 +6,7 @@ Tested up to: 6.8
 Requires PHP: 5.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Stable tag: 3.2.5
+Stable tag: 3.2.6
 
 Payphone - Payment Gateway Button introduces a new payment gateway to process WooCommerce product payments via PayPhone.
 
@@ -66,6 +66,11 @@ For help with setup and configuration, please refer to our [user guide](https://
 If you need assistance, you can reach out via email at **info@payphone.app**.
 
 == Changelog ==
+= 3.2.6 =
+* Fix sporadic payment failure on WP 6.2+ / PHP 8+ caused by multi-byte UTF-8 characters or legacy DB encodings in the request payload.
+* Add "Use SKUs in reference" setting (disabled by default) to use product SKUs as the payment reference.
+* Fix lineItems unit price calculation when the order has coupons or per-line discounts.
+
 = 3.2.5 =
 * Deny direct access to plugin files
 * Data Sanitized, Escaped, and Validated

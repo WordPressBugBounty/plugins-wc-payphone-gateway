@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Payphone - Payment Gateway Button\n"
-"POT-Creation-Date: 2025-11-20 14:35-0500\n"
-"PO-Revision-Date: 2025-11-20 14:35-0500\n"
+"POT-Creation-Date: 2026-05-14 11:07-0500\n"
+"PO-Revision-Date: 2026-05-14 11:07-0500\n"
 "Last-Translator: \n"
 "Language-Team: Code is in the Air <jairo@thecodeisintheair.com>\n"
 "Language: es_EC\n"
@@ -156,7 +156,16 @@ msgstr "Ajustes"
 msgid "Docs"
 msgstr "Documentos"
 
-#: includes/payphone-gateway-btn-process.php:67
+#: includes/payphone-gateway-btn-process.php:39
+msgid ""
+"There was a problem with the order data while processing the payment with "
+"PayPhone. Please contact the store."
+msgstr ""
+"Hubo un problema con la información del pedido al procesar el pago con "
+"PayPhone. Por favor contacta al comercio."
+
+#: includes/payphone-gateway-btn-process.php:62
+#: includes/payphone-gateway-btn-process.php:81
 #: includes/payphone-gateway-btn-response.php:110
 msgid "The request could not be completed"
 msgstr "No se ha podido completar la solicitud"
@@ -208,6 +217,24 @@ msgstr "Dada por payphone"
 #: includes/settings/settings-pp.php:31
 msgid "Store Id:"
 msgstr "Identificación de la tienda:"
+
+#: includes/settings/settings-pp.php:37
+msgid "Use SKUs in reference"
+msgstr "Usar SKUs en referencia"
+
+#: includes/settings/settings-pp.php:39
+msgid "Use product SKUs as the payment reference."
+msgstr "Usar los SKUs de los productos como referencia del pago."
+
+#: includes/settings/settings-pp.php:41
+msgid ""
+"When enabled, the reference uses the format SKU>xQuantity|SKU>xQuantity. "
+"Products without SKU are skipped. If no product has a SKU, the default "
+"reference is used."
+msgstr ""
+"Cuando se activa, la referencia usa el formato SKU>xCantidad|SKU>xCantidad. "
+"Los productos sin SKU se omiten. Si ningún producto tiene SKU, se usa la "
+"referencia por defecto."
 
 #: templates/order-header-template.php:15
 msgid "Canceled"

@@ -4,7 +4,7 @@
   Plugin Name: Payphone - Payment Gateway Button
   Plugin URI: https://www.payphone.app/business/
   Description: Accept payments in your online store with Visa, Mastercard, Diners, Discover cards or Payphone balance using our plugin.
-  Version: 3.2.5
+  Version: 3.2.6
   Author: Payphone.
   Author URI: https://www.payphone.app/
   Text Domain: wc-payphone-gateway
@@ -18,7 +18,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 if (!defined('PAYPHONE_G_BTN_VERSION')) {
-    define('PAYPHONE_G_BTN_VERSION', '3.2.5');
+    define('PAYPHONE_G_BTN_VERSION', '3.2.6');
 }
 
 if (!defined('PAYPHONE_G_BTN_PLUGIN_PATH')) {
